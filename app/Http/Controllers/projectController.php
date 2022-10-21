@@ -16,7 +16,7 @@ class projectController extends Controller
     public function index()
     {
        
-        return view('index');
+        return view('Admin/Kriteria/index');
     }
 
     /**
@@ -26,7 +26,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        return view('tambahData');
+        return view('Admin/Kategori/form');
     }
 
     /**

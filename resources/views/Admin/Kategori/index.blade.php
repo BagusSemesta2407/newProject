@@ -20,6 +20,7 @@
           <thead>
             <tr>
               <th scope="col">No</th>
+              <th scope="col">Kode Kategori</th>
               <th scope="col">Kategori</th>
               <th scope="col">Action</th>
             </tr>
@@ -27,10 +28,12 @@
           <tbody>
             <tr>
               <td>1,001</td>
+              <td>1,001</td>
               <td>random</td>
               <td>data</td>
             </tr>
             <tr>
+              <td>1,002</td>
               <td>1,002</td>
               <td>placeholder</td>
               <td>irrelevant</td>
