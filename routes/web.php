@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/dashboard',function(){
+Route::get('/',function(){
     return view('Admin.dashboardAdmin');
 });
-Route::get('/',function(){
-    return view('index');
-});
+// Route::get('/',function(){
+//     return view('index');
+// });
 route::resource('/project', projectController::class)->middleware('auth');
