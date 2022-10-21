@@ -26,7 +26,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        //
+        return view('tambahData');
     }
 
     /**
@@ -37,7 +37,13 @@ class projectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData=$request->validate([
+            'name'=>'required',
+            'file'=>'required',
+            'kategori_id'=>'required'
+        ]);
+        Project::create($validateData);
+        return view('/project')->with('success','Data Berhasil diinput');
     }
 
     /**
