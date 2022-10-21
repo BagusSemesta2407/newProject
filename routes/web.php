@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('',function(){
-    return view('dashboard');
+Route::get('/dashboard',function(){
+    return view('Admin.dashboardAdmin');
+});
+Route::get('/',function(){
+    return view('index');
 });
 route::resource('/project', projectController::class)->middleware('auth');
