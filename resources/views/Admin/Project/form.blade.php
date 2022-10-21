@@ -49,7 +49,7 @@
                                         <div class="input-group">
                                             <select name="kategori_id"
                                                 class="form-control @error('kategori_id') is-invalid @enderror">
-                                                <option value="" selected="" disabled="">Pilih Kategori project
+                                                <option value="" selected="" disabled="">Pilih Kategori Project
                                                 </option>
                                                 @foreach ($kategoris as $kat)
                                                     <option value="{{ $kat->id }}"
@@ -64,7 +64,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row mt-2">
                                     <label for="name" class="col-sm-3 col-form-label">Nama project <sup
                                             class="text-danger">*</sup></label>
                                     <div class="col-sm-9">
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+                                <div class="form-group row mt-2">
                                     <label for="file" class="col-sm-3 col-form-label">Gambar project <sup
                                             class="text-danger">*</sup></label>
                                     <div class="col-sm-9">

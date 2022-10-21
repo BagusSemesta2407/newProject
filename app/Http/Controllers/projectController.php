@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class projectController extends Controller
@@ -27,12 +28,8 @@ class projectController extends Controller
      */
     public function create()
     {
-        return view('Admin.Project.form');
-        $kategoriBerita = KategoriBerita::oldest('kategori')->get();
-        return view('pages.berita.form', [
-            'kategoriBerita' => $kategoriBerita,
-
-        ]);
+        $kategoris = Kategori::Oldest('name')->get();
+        return view('Admin.Project.form', ['kategoris'=>$kategoris]);
     }
 
     /**s
@@ -43,13 +40,21 @@ class projectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        // $prj = Project::whereNameId($projects->id)->first();
-        // Project::create([
-        //     'name' => $prj->name,
-        //     'file' => $prj->file,
-        //     'kategori_id' => $prj->kategori_id
-        // ]);
-        // return redirect('/project')->withSuccess('success', 'Data Berhasil diinput');
+        $tujuan_upload = public_path('file');
+
+        $image = $request->file('file');
+        $ext = $image->getClientOriginalExtension();
+        $nama_image = time() . 'project.' . $ext;
+        $image->move($tujuan_upload, $nama_image);
+
+
+        $projects = Project::create([
+
+            'kategori_id'   => $request->kategori_id,
+            'name'                => $request->name,
+            'file'                 => $nama_image,
+        ]);
+        return redirect('/project')->withSuccess('Data Telah Berhasil Diinput');
     }
 
     /**
