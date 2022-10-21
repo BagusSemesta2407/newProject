@@ -23,4 +23,4 @@ Route::get('/',function(){
 // Route::get('/',function(){
 //     return view('index');
 // });
-route::resource('/project', projectController::class)->middleware('auth');
+route::resource('/project', projectController::class);
