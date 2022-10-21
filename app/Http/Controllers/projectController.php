@@ -16,9 +16,9 @@ class projectController extends Controller
     public function index()
     {
 
-        // return view('index', [
-        //     'projects' => Project::all()
-        // ]);
+        $Project = Project::all();
+        return view('Admin.Project.index', compact('Project'));
+
     }
 
     /**
@@ -28,7 +28,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        
+        return view('Admin.Project.form');
     }
 
     /**
