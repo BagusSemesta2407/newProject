@@ -37,12 +37,10 @@
                             @endif
                             @csrf
 
-                            
                             <div class="card-header">
                                 <h4>Data Kategori Berita</h4>
                             </div>
                             <div class="card-body">
-
                                 <div class="form-group row">
                                     <label for="kode_kategori" class="col-sm-3 col-form-label">Kode Kategori <sup
                                             class="text-danger">*</sup></label>
@@ -75,8 +73,6 @@
                                         <button type="submit" class="btn btn-primary"> {{ $aksi }}</button>
                                     </div>
                                 </div>
-
-
                             </div>
                             </form>
                         </div>

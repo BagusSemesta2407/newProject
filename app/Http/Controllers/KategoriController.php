@@ -16,9 +16,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        // return view('kategori',[
-        //     'kategoris'=>Kategori::all()
-        // ]);
+        $kategoris = Kategori::all();
         return view('Admin.Kategori.index');
     }
 
@@ -40,10 +38,9 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        
         Kategori::create([
-            'kode_kategori'=>$request->kode_kategori,
-            'name'=>$request->name
+            'kode_kategori' => $request->kode_kategori,
+            'name'      => $request->name
         ]);
         return redirect('/kategori')->with('success', 'Data Berhasil diinput');
     }
