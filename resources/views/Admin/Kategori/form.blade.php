@@ -1,4 +1,3 @@
-
 @extends('layouts.mainAdmin')
 
 @section('content')
@@ -7,7 +6,7 @@
         <section class="section">
             <div class="section-header">
                 <h1>
-                    @if (@$project->exists)
+                    @if (@$kategoris->exists)
                         Edit
                         @php
                             $aksi = 'Edit';
@@ -27,9 +26,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            @if (@$project->exists)
+                            @if (@$kategoris->exists)
                                 <form id="modalForm" class="forms-sample" enctype="multipart/form-data" method="POST"
-                                    action="{{ route('project.update', $kategoriBerita) }}">
+                                    action="{{ route('kategori.update', $kategoris->id) }}">
                                     @method('put')
                                 @else
                                     <form id="modalForm" class="forms-sample" enctype="multipart/form-data" method="POST"
@@ -47,7 +46,7 @@
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="kode_kategori" name="kode_kategori"
                                             placeholder="Kode Kategori" required
-                                            value="{{ old('kode_kategori', @$project->kategori) }}">
+                                            value="{{ old('kode_kategori', @$kategoris->kode_kategori) }}">
                                         @if ($errors->has('kode_kategori'))
                                             <span class="text-danger">{{ $errors->first('kode_kategori') }}</span>
                                         @endif
@@ -59,7 +58,7 @@
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="name" name="name"
                                             placeholder="Kategori Berita " required
-                                            value="{{ old('name', @$kategoriBerita->kategori) }}">
+                                            value="{{ old('name', @$kategoris->name) }}">
                                         @if ($errors->has('name'))
                                             <span class="text-danger">{{ $errors->first('name') }}</span>
                                         @endif
@@ -94,4 +93,3 @@
         });
     </script>
 @endsection
-

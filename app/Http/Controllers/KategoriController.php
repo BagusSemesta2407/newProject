@@ -62,9 +62,10 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-        return view('Admin.Kategori.form');
+        $kategoris= Kategori::find($id);
+        return view('Admin.Kategori.form',compact('kategoris'));
     }
     
 
@@ -90,8 +91,8 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kategori $kategori)
+    public function destroy($id)
     {
-        //
+        
     }
 }
