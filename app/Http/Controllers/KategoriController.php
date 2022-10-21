@@ -62,22 +62,26 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kategori $kategoris)
+    public function edit(Request $request)
     {
-        return view('Admin.Kategori.form', compact('kategoris'));
+        return view('Admin.Kategori.form');
     }
     
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateKategoriRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKategoriRequest $request, Kategori $kategori)
+    public function update(Request $request, $id)
     {
-        //
+        Kategori::where('id', $id)->update([
+            'kode_kategori'=>$request->kode_kategori,
+            'name'=>$request->name
+        ]);
+        return redirect('/kategori')->with('success', 'Data Berhasil diubah');
     }
 
     /**
