@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class projectController extends Controller
      */
     public function create()
     {
+        $prj=Project::
         return view('tambahData');
     }
 
@@ -35,14 +37,11 @@ class projectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        $validateData=$request->validate([
-            'name'=>'required',
-            'file'=>'required',
-            'kategori_id'=>'required'
+        Project::create([
+            'name'=>
         ]);
-        Project::create($validateData);
         return view('/project')->with('success','Data Berhasil diinput');
     }
 
