@@ -15,8 +15,10 @@ class projectController extends Controller
      */
     public function index()
     {
-       
-        return view('index');
+
+        // return view('index', [
+        //     'projects' => Project::all()
+        // ]);
     }
 
     /**
@@ -26,8 +28,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        $prj=Project::
-        return view('tambahData');
+        
     }
 
     /**
@@ -38,10 +39,13 @@ class projectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        Project::create([
-            'name'=>
-        ]);
-        return view('/project')->with('success','Data Berhasil diinput');
+        // $prj = Project::whereNameId($projects->id)->first();
+        // Project::create([
+        //     'name' => $prj->name,
+        //     'file' => $prj->file,
+        //     'kategori_id' => $prj->kategori_id
+        // ]);
+        // return redirect('/project')->withSuccess('success', 'Data Berhasil diinput');
     }
 
     /**

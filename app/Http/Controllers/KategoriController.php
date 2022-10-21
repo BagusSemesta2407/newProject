@@ -15,7 +15,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        return view('kategori',[
+            'kategoris'=>Kategori::all()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('tambahDataKategori');
     }
 
     /**
@@ -36,7 +38,7 @@ class KategoriController extends Controller
      */
     public function store(StoreKategoriRequest $request)
     {
-        //
+        
     }
 
     /**
