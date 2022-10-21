@@ -49,3 +49,54 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+    <script type="text/javascript">
+        $("#mytable").dataTable();
+
+
+        @if (session('success'))
+            iziToast.success({
+                message: "{{ session('success') }}",
+                position: 'topRight'
+            });
+        @endif ()
+
+
+        $(document).on('click', '.delete', function() {
+            let url = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+            Swal.fire({
+                    title: 'Hapus?',
+                    text: "Setelah dihapus, tidak akan bisa dibatalkan!",
+                    icon: 'error',
+                    showCancelButton: true
+                })
+                .then((willDelete) => {
+                    if (willDelete.isConfirmed) {
+                        $(this).parent('div').parent('div').parent('td').parent('tr').remove();
+                        $.ajax({
+                            type: 'DELETE',
+                            url: url,
+                            dataType: 'json',
+                            success: function(data) {
+                                Swal.fire('Deleted!', 'Data Berhasil Dihapus!', 'success')
+                                    .then(
+                                        function() {
+                                            location.reload();
+                                        })
+                            },
+                            error: function(data) {
+                                console.log('Error :' + data);
+                            }
+                        })
+                    }
+                });
+
+        })
+    </script>
+@endsection

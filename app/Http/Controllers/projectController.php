@@ -17,7 +17,7 @@ class projectController extends Controller
     {
 
         $projects = Project::all();
-        return view('Admin.Project.index');
+        return view('Admin.Project.index', compact('projects'));
     }
 
     /**
@@ -27,10 +27,15 @@ class projectController extends Controller
      */
     public function create()
     {
-        
+        return view('Admin.Project.form');
+        $kategoriBerita = KategoriBerita::oldest('kategori')->get();
+        return view('pages.berita.form', [
+            'kategoriBerita' => $kategoriBerita,
+
+        ]);
     }
 
-    /**
+    /**s
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
