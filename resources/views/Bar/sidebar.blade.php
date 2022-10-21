@@ -2,13 +2,19 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link {{ Request::is('Admin/dashboardAdmin') ? 'active' : '' }}" aria-current="page" href="#">
             <span data-feather="home"></span>
             Dashboard
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/project">
+          <a class="nav-link {{ Request::is('Admin/Kategori') ? 'active' : '' }}" href="/kategori">
+            <span data-feather="file"></span>
+            Kategori
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('Admin/project') ? 'active' : '' }}" href="/project">
             <span data-feather="file"></span>
             Project
           </a>

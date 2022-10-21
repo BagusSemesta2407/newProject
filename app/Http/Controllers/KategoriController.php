@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Http\Requests\StoreKategoriRequest;
 use App\Http\Requests\UpdateKategoriRequest;
+use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
@@ -15,9 +16,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('kategori',[
-            'kategoris'=>Kategori::all()
-        ]);
+        // return view('kategori',[
+        //     'kategoris'=>Kategori::all()
+        // ]);
+        return view('Admin.Kategori.index');
     }
 
     /**
@@ -27,18 +29,23 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('tambahDataKategori');
+        return view('Admin.Kategori.form');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKategoriRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKategoriRequest $request)
+    public function store(Request $request)
     {
         
+        Kategori::create([
+            'kode_kategori'=>$request->kode_kategori,
+            'name'=>$request->name
+        ]);
+        return redirect('/kategori')->with('success', 'Data Berhasil diinput');
     }
 
     /**
