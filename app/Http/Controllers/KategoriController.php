@@ -93,8 +93,10 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
+        
         $kategoris=Kategori::find($id);
         Kategori::destroy($id);
+
         return redirect('/kategori')->with('success', 'Data Berhasil dihapus');
     }
 }
