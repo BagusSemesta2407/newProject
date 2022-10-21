@@ -26,7 +26,6 @@ class projectController extends Controller
      */
     public function create()
     {
-        $prj=Project::
         return view('tambahData');
     }
 
@@ -39,9 +38,9 @@ class projectController extends Controller
     public function store(ProjectRequest $request)
     {
         Project::create([
-            'name'=>
+            'name'=> $request->name
         ]);
-        return view('/project')->with('success','Data Berhasil diinput');
+        return redirect('project')->with('success','Data Berhasil diinput');
     }
 
     /**
