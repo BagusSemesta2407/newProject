@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name')->comment('nama project');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->foreignId('kategori_id');
             $table->timestamps();
         });

@@ -40,21 +40,28 @@ class projectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $tujuan_upload = public_path('file');
+        // $tujuan_upload = public_path('file');
 
-        $image = $request->file('file');
-        $ext = $image->getClientOriginalExtension();
-        $nama_image = time() . 'project.' . $ext;
-        $image->move($tujuan_upload, $nama_image);
+        // $image = $request->file('file');
+        // $ext = $image->getClientOriginalExtension();
+        // $nama_image = time() . 'project.' . $ext;
+        // $image->move($tujuan_upload, $nama_image);
 
 
-        $projects = Project::create([
+        // $projects = Project::create([
 
-            'kategori_id'   => $request->kategori_id,
-            'name'                => $request->name,
-            'file'                 => $nama_image,
+        //     'kategori_id'   => $request->kategori_id,
+        //     'name'                => $request->name,
+        //     'file'                 => $nama_image,
+        // ]);
+        // return redirect('/project')->withSuccess('Data Telah Berhasil Diinput');
+        return $request->file('file')->store('post-images');
+        Project::create([
+            'name' => $request->kode_kategori,
+            'file'      => $request->name,
+            'kategori_id'=>$request->kategori_id
         ]);
-        return redirect('/project')->withSuccess('Data Telah Berhasil Diinput');
+        return redirect('/kategori')->with('success', 'Data Berhasil diinput');
     }
 
     /**

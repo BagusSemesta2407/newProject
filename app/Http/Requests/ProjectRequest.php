@@ -25,7 +25,7 @@ class ProjectRequest extends FormRequest
     {
         $rules=[
             'name'=>'required',
-            'file'=>'required',
+            'file'=>'required|file',
             'kategori_id'=>'required'
         ];
         return $rules;

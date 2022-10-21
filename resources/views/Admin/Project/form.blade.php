@@ -36,7 +36,7 @@
                                         action="{{ route('project.store') }}">
                             @endif
 
-                            {{ csrf_field() }}
+                            @csf
                             <div class="card-header">
                                 <h4>Data project</h4>
                             </div>
