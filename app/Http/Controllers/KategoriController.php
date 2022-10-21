@@ -17,7 +17,7 @@ class KategoriController extends Controller
     public function index()
     {
         $kategoris = Kategori::all();
-        return view('Admin.Kategori.index');
+        return view('Admin.Kategori.index', compact('kategoris'));
     }
 
     /**
@@ -62,10 +62,11 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kategori $kategori)
+    public function edit(Kategori $kategoris)
     {
-        //
+        return view('Admin.Kategori.form', compact('kategoris'));
     }
+    
 
     /**
      * Update the specified resource in storage.
